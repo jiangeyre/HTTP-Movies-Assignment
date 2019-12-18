@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
+import AddFilm from './Movies/AddFilm';
 
 const App = () => {
   const [savedList, setSavedList] = useState([]);
