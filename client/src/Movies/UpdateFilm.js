@@ -24,9 +24,16 @@ const UpdateFilm = props => {
 
     const handleChanges = e => {
         e.preventDefault();
+        let value = e.target.value;
+
+        if(e.target.name === 'stars'){
+            value = [value];
+        }
+
         setFilm({
             ...film,
-            [e.target.name]: e.target.value
+            [e.target.name]: value,
+            id: id
         });
     };
 

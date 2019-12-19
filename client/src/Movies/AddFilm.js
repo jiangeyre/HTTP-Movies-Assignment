@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react"
+import React, { useState,useEffect } from "react"
 import axios from "axios"
 
 const AddFilm = props => {
@@ -11,9 +11,15 @@ const AddFilm = props => {
     //  const id = props.match.params.id;
 
     const handleChange = e => {
+        e.persist();
+        let value = e.target.value;
+
+        if(e.target.name === 'stars'){
+            value=[value];
+        }
         setAdd({
             ...add,
-        [e.target.name]:e.target.value
+            [e.target.name]: value
         })
         console.log(add);
     };
@@ -32,6 +38,7 @@ const AddFilm = props => {
             <input name="title" value={add.title} onChange={handleChange} placeholder="Film Title" /> 
             <input name="director" value={add.director} onChange={handleChange} placeholder="Director" /> 
             <input name="metascore" value={add.metascore} onChange={handleChange} placeholder="Score" /> 
+            <input name="stars" value={add.stars} onChange={handleChange} placeholder="Stars" /> 
             <button>Submit</button>
         </form>
     )
